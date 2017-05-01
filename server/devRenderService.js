@@ -6,11 +6,13 @@ const path = require('path');
 const express = require('express');
 const http = require('http');
 const appPort = require('./port');
-const port = exports.port = appPort + 1;
+const port = appPort + 1;
 const chalk = require('chalk');
 const enableDestroy = require('server-destroy');
 
 const debug = console.log.bind(console, chalk.cyan('[ssr service]'));
+
+exports.port = port;
 
 function ensureAllGeneratedFilesExist() {
   const modules = [
