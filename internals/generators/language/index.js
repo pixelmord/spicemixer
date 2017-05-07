@@ -77,10 +77,11 @@ module.exports = {
       () => {
         const cmd = 'npm run extract-intl';
         exec(cmd, (err, result, stderr) => {
-          if (err || stderr) {
+          if (typeof result !== 'undefined') {
+            process.stdout.write(result);
+          } else {
             throw err || stderr;
           }
-          process.stdout.write(result);
         });
         return 'modify translation messages';
       }

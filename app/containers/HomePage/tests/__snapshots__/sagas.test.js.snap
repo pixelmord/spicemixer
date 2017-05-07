@@ -1,16 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`getRepos Saga should call the repoLoadingError action if the response errors 1`] = `
 Object {
-  "@@redux-saga/IO": true,
   "SELECT": Object {
     "args": Array [],
     "selector": [Function],
   },
+  Symbol(@@redux-saga/IO): true,
 }
 `;
 
 exports[`getRepos Saga should call the repoLoadingError action if the response errors 2`] = `
 Object {
-  "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
       "https://api.github.com/users/mxstbr/repos?type=all&sort=updated",
@@ -18,22 +19,22 @@ Object {
     "context": null,
     "fn": [Function],
   },
+  Symbol(@@redux-saga/IO): true,
 }
 `;
 
 exports[`getRepos Saga should dispatch the reposLoaded action if it requests the data successfully 1`] = `
 Object {
-  "@@redux-saga/IO": true,
   "SELECT": Object {
     "args": Array [],
     "selector": [Function],
   },
+  Symbol(@@redux-saga/IO): true,
 }
 `;
 
 exports[`getRepos Saga should dispatch the reposLoaded action if it requests the data successfully 2`] = `
 Object {
-  "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
       "https://api.github.com/users/mxstbr/repos?type=all&sort=updated",
@@ -41,5 +42,6 @@ Object {
     "context": null,
     "fn": [Function],
   },
+  Symbol(@@redux-saga/IO): true,
 }
 `;
