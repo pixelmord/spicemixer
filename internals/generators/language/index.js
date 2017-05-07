@@ -77,7 +77,7 @@ module.exports = {
       () => {
         const cmd = 'npm run extract-intl';
         exec(cmd, (err, result, stderr) => {
-          if (err || stderr) {
+          if (Boolean(err) || stderr) {
             throw err || stderr;
           }
           process.stdout.write(result);
