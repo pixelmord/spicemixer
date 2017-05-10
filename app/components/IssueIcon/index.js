@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 function IssueIcon(props) {
   return (
     <svg
@@ -13,7 +13,7 @@ function IssueIcon(props) {
 }
 
 IssueIcon.propTypes = {
-  className: React.PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default IssueIcon;
