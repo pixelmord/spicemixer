@@ -15,50 +15,19 @@ const loadModule = (cb) => (componentModule) => {
 
 function createChildRoutes(store) {
   // create reusable async injectors using getAsyncInjectors factory
-  const { injectReducer, injectSagas } = getAsyncInjectors(store);
+  const { injectReducer, injectSagas } = getAsyncInjectors(store); // eslint-disable-line no-unused-vars
 
   return [
     {
       path: '/',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          import('containers/HomePage/reducer'),
-          import('containers/HomePage/sagas'),
           import('containers/HomePage'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([reducer, sagas, component]) => {
-          injectReducer('home', reducer.default);
-          injectSagas(sagas.default);
-
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
-    }, {
-      path: '/features',
-      getComponent(nextState, cb) {
-        import('containers/FeaturePage')
-          .then(loadModule(cb))
-          .catch(errorLoading);
-      },
-    }, {
-      path: '/users/:username',
-      name: 'user',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/UserPage/sagas'),
-          System.import('containers/UserPage'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([sagas, component]) => {
-          injectSagas(sagas.default);
-
+        importModules.then(([component]) => {
           renderRoute(component);
         });
 

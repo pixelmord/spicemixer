@@ -21,4 +21,6 @@
 </div>
 
 
-Build on top of the amazing [react-boilerplate](https://github.com/react-boilerplate)
+Build with the amazing [react-boilerplate](https://github.com/react-boilerplate) as a starter.
+
+[React Boilerplate Readme](./react-boilerplate-README.md)
