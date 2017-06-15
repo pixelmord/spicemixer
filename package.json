@@ -239,7 +239,7 @@
     "lodash": "4.17.4",
     "minimist": "1.2.0",
     "react": "15.5.4",
-    "react-dom": "15.5.4",
+    "react-dom": "15.6.1",
     "react-helmet": "5.0.3",
     "react-intl": "2.3.0",
     "react-redux": "5.0.4",
