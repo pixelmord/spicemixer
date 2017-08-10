@@ -297,7 +297,7 @@
     "jest-cli": "19.0.2",
     "lint-staged": "3.4.1",
     "ngrok": "2.2.9",
-    "node-plop": "0.5.5",
+    "node-plop": "0.6.0",
     "nodemon": "1.11.0",
     "npm-run-all": "4.0.2",
     "null-loader": "0.1.1",
