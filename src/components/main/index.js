@@ -44,59 +44,70 @@ import Helmet from 'react-helmet';
 import { Redirect } from 'kit/lib/routing';
 
 /* App */
+import Headroom from 'react-headroom';
 
+import AppBar from '../lib/AppBar';
+import Logo from '../lib/Logo';
 // Child React components. Note:  We can either export one main React component
 // per file, or in the case of <Home>, <Page> and <WhenFound>, we can group
 // multiple components per file where it makes sense to do so
-import GraphQLMessage from 'src/components/graphql';
-import { Home, Page, WhenNotFound } from 'src/components/routes';
-import ReduxCounter from 'src/components/redux';
-import Stats from 'src/components/stats';
-import Styles from 'src/components/styles';
-
-// Styles
-import css from './main.scss';
-
-// Get the ReactQL logo.  This is a local .svg file, which will be made
-// available as a string relative to [root]/dist/assets/img/
-import logo from './reactql-logo.svg';
+// import GraphQLMessage from 'src/components/graphql';
+// import { Home, Page, WhenNotFound } from 'src/components/routes';
+// import ReduxCounter from 'src/components/redux';
+// import Stats from 'src/components/stats';
+// import Styles from 'src/components/styles';
 
 // ----------------------
-
 export default () => (
-  <div>
+  <div className="app">
     <Helmet
-      title="ReactQL application"
+      title="Spicemixer"
       meta={[{
         name: 'description',
-        content: 'ReactQL starter kit app',
+        content: 'Mix with friends and spices.',
       }]} />
-    <div className={css.hello}>
-      <img src={logo} alt="ReactQL" className={css.logo} />
-    </div>
-    <hr />
-    <GraphQLMessage />
-    <hr />
-    <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/page/about">About</Link></li>
-      <li><Link to="/page/contact">Contact</Link></li>
-      <li><Link to="/old/path">Redirect from /old/path &#8594; /new/path</Link></li>
-    </ul>
-    <hr />
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/page/:name" component={Page} />
-      <Redirect from="/old/path" to="/new/path" />
-      <Route component={WhenNotFound} />
-    </Switch>
-    <hr />
-    <ReduxCounter />
-    <hr />
-    <p>Runtime info:</p>
-    <Stats />
-    <hr />
-    <p>Stylesheet examples:</p>
-    <Styles />
+    <Headroom>
+      <AppBar>
+        <Logo />
+      </AppBar>
+    </Headroom>
+    <h1>Spicemixer</h1>
   </div>
 );
+// export default () => (
+//   <div>
+//     <Helmet
+//       title="ReactQL application"
+//       meta={[{
+//         name: 'description',
+//         content: 'ReactQL starter kit app',
+//       }]} />
+//     <div className={css.hello}>
+//       <img src={logo} alt="ReactQL" className={css.logo} />
+//     </div>
+//     <hr />
+//     <GraphQLMessage />
+//     <hr />
+//     <ul>
+//       <li><Link to="/">Home</Link></li>
+//       <li><Link to="/page/about">About</Link></li>
+//       <li><Link to="/page/contact">Contact</Link></li>
+//       <li><Link to="/old/path">Redirect from /old/path &#8594; /new/path</Link></li>
+//     </ul>
+//     <hr />
+//     <Switch>
+//       <Route exact path="/" component={Home} />
+//       <Route path="/page/:name" component={Page} />
+//       <Redirect from="/old/path" to="/new/path" />
+//       <Route component={WhenNotFound} />
+//     </Switch>
+//     <hr />
+//     <ReduxCounter />
+//     <hr />
+//     <p>Runtime info:</p>
+//     <Stats />
+//     <hr />
+//     <p>Stylesheet examples:</p>
+//     <Styles />
+//   </div>
+// );

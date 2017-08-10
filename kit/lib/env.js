@@ -11,7 +11,7 @@ const defaultPorts = {
     server: 4000,
   },
   development: {
-    browser: 8080,
+    browser: 8090,
     server: 8081,
   },
 };
