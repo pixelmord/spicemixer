@@ -18,7 +18,9 @@
     "server-dev": "cross-env NODE_ENV=development WEBPACK_CONFIG=server_dev webpack --colors",
     "start": "run-p browser server-dev",
     "static": "serve -s dist/public",
-    "test": "jest"
+    "test": "jest",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -106,10 +108,12 @@
     "redux-thunk": "^2.2.0",
     "regenerator-runtime": "^0.10.5",
     "seamless-immutable": "^7.1.2",
-    "styled-components": "^2.1.2"
+    "styled-components": "^2.1.2",
+    "snyk": "^1.41.1"
   },
   "engines": {
     "node": ">=7",
     "npm": ">=4"
-  }
+  },
+  "snyk": true
 }
