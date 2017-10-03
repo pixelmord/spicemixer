@@ -66,7 +66,7 @@
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.6",
     "serve": "^6.0.6",
-    "style-loader": "^0.18.2",
+    "style-loader": "^0.19.0",
     "webpack": "^3.4.1",
     "webpack-bundle-analyzer": "^2.8.2",
     "webpack-chunk-hash": "^0.4.0",
