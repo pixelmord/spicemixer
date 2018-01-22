@@ -58,7 +58,7 @@
     "node-sass": "^4.5.3",
     "node-zopfli": "^2.0.2",
     "npm-run-all": "^4.0.2",
-    "postcss-cssnext": "3.0.2",
+    "postcss-cssnext": "3.1.0",
     "postcss-loader": "^2.0.6",
     "postcss-nested": "^2.1.0",
     "progress-bar-webpack-plugin": "^1.9.3",
