@@ -32,13 +32,14 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 const link = ApolloLink.from([
   errorLink,
   new HttpLink({
-    uri: 'http://localhost:3009/graphql'
-  })
+    uri: 'http://localhost:3009/graphql',
+    credentials: 'same-origin',
+  }),
 ]);
 
 const client = new ApolloClient({
   link,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(

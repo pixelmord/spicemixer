@@ -22,10 +22,15 @@ const SpicesPage = () => (
         if (result.error) {
           return <div>error</div>;
         }
-
         const { data } = result;
 
-        return <h1>Hello {data}!</h1>;
+        return (
+          <ul>
+            {data.allSpices.map((spice: any, i: number) => (
+              <li key={i}>{spice.name}</li>
+            ))}
+          </ul>
+        );
       }}
     </Query>
   </div>
