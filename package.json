@@ -14,15 +14,18 @@
     "react-apollo": "^2.1.0-beta.2",
     "react-dom": "^16.2.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts-ts": "2.13.0",
+    "react-scripts-ts": "2.15.0",
     "semantic-ui-css": "^2.3.0",
-    "semantic-ui-react": "^0.79.0"
+    "semantic-ui-react": "^0.79.0",
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "devDependencies": {
     "@types/graphql": "^0.12.4",
@@ -39,5 +42,6 @@
   "prettier": {
     "singleQuote": true,
     "trailingComma": "es5"
-  }
+  },
+  "snyk": true
 }
