@@ -1,20 +1,47 @@
-# Spicemixer Web App
-<div align="center">
-  <!-- Dependency Status -->
-  <a href="https://greenkeeper.io/">
-    <img src="https://badges.greenkeeper.io/pixelmord/spicemixer.svg" alt="Greenkeeper Status" />
-  </a>
-  <a href="https://david-dm.org/pixelmord/spicemixer#info=Dependencies">
-      <img src="https://david-dm.org/pixelmord/spicemixer/status.svg" alt="Dependency Status" />
-    </a>
-  <!-- devDependency Status -->
-  <a href="https://david-dm.org/pixelmord/spicemixer#info=devDependencies">
-    <img src="https://david-dm.org/pixelmord/spicemixer/dev-status.svg" alt="devDependency Status" />
-  </a>
-  <!-- Build Status -->
-  <a href="https://travis-ci.org/pixelmord/spicemixer">
-    <img src="https://travis-ci.org/pixelmord/spicemixer.svg?branch=master" alt="build:passed" data-pin-nopin="true">
-  </a>
-  <!-- Test Coverage -->
-  <a href='https://coveralls.io/github/pixelmord/spicemixer?branch=master'><img src='https://coveralls.io/repos/github/pixelmord/spicemixer/badge.svg?branch=master' alt='Coverage Status' /></a>
-</div>
+# Astro Starter Kit: Minimal
+
+```sh
+npm create astro@latest -- --template minimal
+```
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
+
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
