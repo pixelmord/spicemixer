@@ -1,172 +1,172 @@
 {
-  "@context": "https://schema.org/",
-  "@type": "Recipe",
-  "name": "Butterkuchen mit Mandeln",
-  "author": {
-    "@type": "Person",
-    "name": "Kathrin"
-  },
-  "description": "Dieser k\u00f6stliche Butterkuchen ist ein beliebter Blechkuchen-Klassiker ohne gro\u00dfen Aufwand. Durch den Sahneguss wird er besonders saftig.",
-  "datePublished": "2023-02-12T07:54:00+00:00",
-  "image": [
-    "https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-scaled.jpg",
-    "https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-500x500.jpg",
-    "https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-500x375.jpg",
-    "https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-480x270.jpg"
-  ],
-  "recipeYield": "1 Blech",
-  "prepTime": "PT15M",
-  "cookTime": "PT20M",
-  "totalTime": "PT35M",
-  "recipeIngredient": [
-    "200 Milliliter Milch (lauwarm)",
-    "1 W\u00fcrfel frische Hefe",
-    "70 Gramm Zucker",
-    "500 Gramm Weizenmehl (am besten Type 550 bzw. Wiener Griessler)",
-    "1 mittelgro\u00dfes Ei",
-    "100 Gramm Butter (weich)",
-    "1 Prise Salz",
-    "150 Gramm Butter",
-    "120 Gramm Zucker",
-    "100 Gramm Mandelbl\u00e4ttchen",
-    "120 Milliliter Sahne"
-  ],
-  "recipeInstructions": [
-    {
-      "@type": "HowToStep",
-      "text": "Die Hefe in einen Becher mit lauwarmer Milch br\u00f6ckeln. Einen Teel\u00f6ffel vom Zucker hinzugeben und r\u00fchren, bis sich Zucker und Hefe aufgel\u00f6st haben. Das Mehl in eine Sch\u00fcssel geben und in der Mitte eine Mulde eindr\u00fccken. Die Hefe-Milch-Mischung hineingie\u00dfen. Den restlichen Zucker dazugeben und mit etwas Mehl in der Mulde verr\u00fchren. Sch\u00fcssel mit einem Tuch bedecken und an einem warmen Ort f\u00fcr ca. 10 Minuten stehen lassen.",
-      "name": "Die Hefe in einen Becher mit lauwarmer Milch br\u00f6ckeln. Einen Teel\u00f6ffel vom Zucker hinzugeben und r\u00fchren, bis sich Zucker und Hefe aufgel\u00f6st haben. Das Mehl in eine Sch\u00fcssel geben und in der Mitte eine Mulde eindr\u00fccken. Die Hefe-Milch-Mischung hineingie\u00dfen. Den restlichen Zucker dazugeben und mit etwas Mehl in der Mulde verr\u00fchren. Sch\u00fcssel mit einem Tuch bedecken und an einem warmen Ort f\u00fcr ca. 10 Minuten stehen lassen.",
-      "url": "https://www.backenmachtgluecklich.de/rezepte/saftiger-butterkuchen-mit-mandeln-und-sahne.html#wprm-recipe-412695-step-0-0"
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Ei, weiche Butter und Salz hinzugeben. Den Teig mit der K\u00fcchenmaschine ca. 5 Minuten kneten, bis er glatt ist. Mit einem Tuch bedeckt an einem warmen Ort ca. 30 Minuten gehen lassen. Noch einmal kurz durchkneten und auf einem mit Backpapier belegten tiefen Blech ausrollen. Erneut 20 Minuten gehen lassen.",
-      "name": "Ei, weiche Butter und Salz hinzugeben. Den Teig mit der K\u00fcchenmaschine ca. 5 Minuten kneten, bis er glatt ist. Mit einem Tuch bedeckt an einem warmen Ort ca. 30 Minuten gehen lassen. Noch einmal kurz durchkneten und auf einem mit Backpapier belegten tiefen Blech ausrollen. Erneut 20 Minuten gehen lassen.",
-      "url": "https://www.backenmachtgluecklich.de/rezepte/saftiger-butterkuchen-mit-mandeln-und-sahne.html#wprm-recipe-412695-step-0-1"
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Backofen auf 190 Grad Ober- und Unterhitze vorheizen. Mit einem Kochl\u00f6ffelstiel kleine Vertiefungen bzw. Mulden in den gegangenen Teig dr\u00fccken. Butter in Fl\u00f6ckchen auf dem Teig verteilen. Gleichm\u00e4\u00dfig mit Zucker und Mandeln bestreuen.",
-      "name": "Backofen auf 190 Grad Ober- und Unterhitze vorheizen. Mit einem Kochl\u00f6ffelstiel kleine Vertiefungen bzw. Mulden in den gegangenen Teig dr\u00fccken. Butter in Fl\u00f6ckchen auf dem Teig verteilen. Gleichm\u00e4\u00dfig mit Zucker und Mandeln bestreuen.",
-      "url": "https://www.backenmachtgluecklich.de/rezepte/saftiger-butterkuchen-mit-mandeln-und-sahne.html#wprm-recipe-412695-step-0-2"
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Butterkuchen ca. 20 bis 25 Minuten goldgelb backen. Noch hei\u00df mit fl\u00fcssiger Sahne begie\u00dfen. Am besten frisch gebacken servieren; der Kuchen l\u00e4sst sich auch gut einfrieren.",
-      "name": "Butterkuchen ca. 20 bis 25 Minuten goldgelb backen. Noch hei\u00df mit fl\u00fcssiger Sahne begie\u00dfen. Am besten frisch gebacken servieren; der Kuchen l\u00e4sst sich auch gut einfrieren.",
-      "url": "https://www.backenmachtgluecklich.de/rezepte/saftiger-butterkuchen-mit-mandeln-und-sahne.html#wprm-recipe-412695-step-0-3"
-    }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.78",
-    "ratingCount": "548",
-    "reviewCount": "8"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "1"
-      },
-      "reviewBody": "Der Teig hatte eine absolut miserable Konsistenz und man konnte den nicht auf dem Blech verteilen. Musste fast die doppelte Menge an Milch hinzugeben, damit der sich halbwegs verteilen lies. Viel zu kompliziert f\u00fcr ein viel zu schlechtes Ergebnis!",
-      "author": {
-        "@type": "Person",
-        "name": "Lea"
-      },
-      "datePublished": "2024-09-18"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      },
-      "reviewBody": "\u00dcberirdisch, au\u00dferirdisch unfassbar lecker!!!",
-      "author": {
-        "@type": "Person",
-        "name": "ZinkiPinki"
-      },
-      "datePublished": "2024-09-03"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      },
-      "reviewBody": "Absolut genial, suuuper lecker. Ich habe allerdings nur 20 gr Frischhefe (1/2W\u00fcrfel) genommen, nehme generell nur viel weniger Hefe als angegeben. Ansonsten komplett nach Rezept. So einfach und so lecker, den gibts jetzt \u00f6fter.",
-      "author": {
-        "@type": "Person",
-        "name": "Angie"
-      },
-      "datePublished": "2024-08-24"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      },
-      "reviewBody": "Extrem lecker!!!",
-      "author": {
-        "@type": "Person",
-        "name": "Biborella"
-      },
-      "datePublished": "2024-08-14"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "4"
-      },
-      "reviewBody": "Der Teig hat sehr gut funktioniert, leider ist die Backzeit m.E. nach zu lang angegeben, oder der die Temperatur ist zu hoch - ich habe das Blech nach 17 Minuten herausgeholt und der Kuchen ist leider sehr braun... ich hoffe, es ist noch gut gegangen und er schmeckt noch.",
-      "author": {
-        "@type": "Person",
-        "name": "Hanna"
-      },
-      "datePublished": "2024-07-11"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      },
-      "reviewBody": "Ich h\u00e4tte eine Frage kann ich statt Sahne auch Milch verwenden?",
-      "author": {
-        "@type": "Person",
-        "name": "Naomi"
-      },
-      "datePublished": "2024-07-03"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      },
-      "reviewBody": "Tolles Rezept..... habe ich sofort ausprobiert.Der Butterkuchen war superlecker.Kann ich nur weiterempfehlen.Der Tipp mit der Sahne war prima.Dadurch wurde der Butterkuchen sch\u00f6n saftig.Besser als vom B\u00e4cker.\ud83d\ude0b",
-      "author": {
-        "@type": "Person",
-        "name": "Angelika"
-      },
-      "datePublished": "2024-06-29"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      },
-      "reviewBody": "",
-      "author": {
-        "@type": "Person",
-        "name": "Barbara"
-      },
-      "datePublished": "2024-06-13"
-    }
-  ]
+	"@context": "https://schema.org/",
+	"@type": "Recipe",
+	"name": "Butterkuchen mit Mandeln",
+	"author": {
+		"@type": "Person",
+		"name": "Kathrin"
+	},
+	"description": "Dieser k\u00f6stliche Butterkuchen ist ein beliebter Blechkuchen-Klassiker ohne gro\u00dfen Aufwand. Durch den Sahneguss wird er besonders saftig.",
+	"datePublished": "2023-02-12T07:54:00+00:00",
+	"image": [
+		"https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-scaled.jpg",
+		"https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-500x500.jpg",
+		"https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-500x375.jpg",
+		"https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-480x270.jpg"
+	],
+	"recipeYield": "1 Blech",
+	"prepTime": "PT15M",
+	"cookTime": "PT20M",
+	"totalTime": "PT35M",
+	"recipeIngredient": [
+		"200 Milliliter Milch (lauwarm)",
+		"1 W\u00fcrfel frische Hefe",
+		"70 Gramm Zucker",
+		"500 Gramm Weizenmehl (am besten Type 550 bzw. Wiener Griessler)",
+		"1 mittelgro\u00dfes Ei",
+		"100 Gramm Butter (weich)",
+		"1 Prise Salz",
+		"150 Gramm Butter",
+		"120 Gramm Zucker",
+		"100 Gramm Mandelbl\u00e4ttchen",
+		"120 Milliliter Sahne"
+	],
+	"recipeInstructions": [
+		{
+			"@type": "HowToStep",
+			"text": "Die Hefe in einen Becher mit lauwarmer Milch br\u00f6ckeln. Einen Teel\u00f6ffel vom Zucker hinzugeben und r\u00fchren, bis sich Zucker und Hefe aufgel\u00f6st haben. Das Mehl in eine Sch\u00fcssel geben und in der Mitte eine Mulde eindr\u00fccken. Die Hefe-Milch-Mischung hineingie\u00dfen. Den restlichen Zucker dazugeben und mit etwas Mehl in der Mulde verr\u00fchren. Sch\u00fcssel mit einem Tuch bedecken und an einem warmen Ort f\u00fcr ca. 10 Minuten stehen lassen.",
+			"name": "Die Hefe in einen Becher mit lauwarmer Milch br\u00f6ckeln. Einen Teel\u00f6ffel vom Zucker hinzugeben und r\u00fchren, bis sich Zucker und Hefe aufgel\u00f6st haben. Das Mehl in eine Sch\u00fcssel geben und in der Mitte eine Mulde eindr\u00fccken. Die Hefe-Milch-Mischung hineingie\u00dfen. Den restlichen Zucker dazugeben und mit etwas Mehl in der Mulde verr\u00fchren. Sch\u00fcssel mit einem Tuch bedecken und an einem warmen Ort f\u00fcr ca. 10 Minuten stehen lassen.",
+			"url": "https://www.backenmachtgluecklich.de/rezepte/saftiger-butterkuchen-mit-mandeln-und-sahne.html#wprm-recipe-412695-step-0-0"
+		},
+		{
+			"@type": "HowToStep",
+			"text": "Ei, weiche Butter und Salz hinzugeben. Den Teig mit der K\u00fcchenmaschine ca. 5 Minuten kneten, bis er glatt ist. Mit einem Tuch bedeckt an einem warmen Ort ca. 30 Minuten gehen lassen. Noch einmal kurz durchkneten und auf einem mit Backpapier belegten tiefen Blech ausrollen. Erneut 20 Minuten gehen lassen.",
+			"name": "Ei, weiche Butter und Salz hinzugeben. Den Teig mit der K\u00fcchenmaschine ca. 5 Minuten kneten, bis er glatt ist. Mit einem Tuch bedeckt an einem warmen Ort ca. 30 Minuten gehen lassen. Noch einmal kurz durchkneten und auf einem mit Backpapier belegten tiefen Blech ausrollen. Erneut 20 Minuten gehen lassen.",
+			"url": "https://www.backenmachtgluecklich.de/rezepte/saftiger-butterkuchen-mit-mandeln-und-sahne.html#wprm-recipe-412695-step-0-1"
+		},
+		{
+			"@type": "HowToStep",
+			"text": "Backofen auf 190 Grad Ober- und Unterhitze vorheizen. Mit einem Kochl\u00f6ffelstiel kleine Vertiefungen bzw. Mulden in den gegangenen Teig dr\u00fccken. Butter in Fl\u00f6ckchen auf dem Teig verteilen. Gleichm\u00e4\u00dfig mit Zucker und Mandeln bestreuen.",
+			"name": "Backofen auf 190 Grad Ober- und Unterhitze vorheizen. Mit einem Kochl\u00f6ffelstiel kleine Vertiefungen bzw. Mulden in den gegangenen Teig dr\u00fccken. Butter in Fl\u00f6ckchen auf dem Teig verteilen. Gleichm\u00e4\u00dfig mit Zucker und Mandeln bestreuen.",
+			"url": "https://www.backenmachtgluecklich.de/rezepte/saftiger-butterkuchen-mit-mandeln-und-sahne.html#wprm-recipe-412695-step-0-2"
+		},
+		{
+			"@type": "HowToStep",
+			"text": "Butterkuchen ca. 20 bis 25 Minuten goldgelb backen. Noch hei\u00df mit fl\u00fcssiger Sahne begie\u00dfen. Am besten frisch gebacken servieren; der Kuchen l\u00e4sst sich auch gut einfrieren.",
+			"name": "Butterkuchen ca. 20 bis 25 Minuten goldgelb backen. Noch hei\u00df mit fl\u00fcssiger Sahne begie\u00dfen. Am besten frisch gebacken servieren; der Kuchen l\u00e4sst sich auch gut einfrieren.",
+			"url": "https://www.backenmachtgluecklich.de/rezepte/saftiger-butterkuchen-mit-mandeln-und-sahne.html#wprm-recipe-412695-step-0-3"
+		}
+	],
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.78",
+		"ratingCount": "548",
+		"reviewCount": "8"
+	},
+	"review": [
+		{
+			"@type": "Review",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "1"
+			},
+			"reviewBody": "Der Teig hatte eine absolut miserable Konsistenz und man konnte den nicht auf dem Blech verteilen. Musste fast die doppelte Menge an Milch hinzugeben, damit der sich halbwegs verteilen lies. Viel zu kompliziert f\u00fcr ein viel zu schlechtes Ergebnis!",
+			"author": {
+				"@type": "Person",
+				"name": "Lea"
+			},
+			"datePublished": "2024-09-18"
+		},
+		{
+			"@type": "Review",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "\u00dcberirdisch, au\u00dferirdisch unfassbar lecker!!!",
+			"author": {
+				"@type": "Person",
+				"name": "ZinkiPinki"
+			},
+			"datePublished": "2024-09-03"
+		},
+		{
+			"@type": "Review",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Absolut genial, suuuper lecker. Ich habe allerdings nur 20 gr Frischhefe (1/2W\u00fcrfel) genommen, nehme generell nur viel weniger Hefe als angegeben. Ansonsten komplett nach Rezept. So einfach und so lecker, den gibts jetzt \u00f6fter.",
+			"author": {
+				"@type": "Person",
+				"name": "Angie"
+			},
+			"datePublished": "2024-08-24"
+		},
+		{
+			"@type": "Review",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Extrem lecker!!!",
+			"author": {
+				"@type": "Person",
+				"name": "Biborella"
+			},
+			"datePublished": "2024-08-14"
+		},
+		{
+			"@type": "Review",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "4"
+			},
+			"reviewBody": "Der Teig hat sehr gut funktioniert, leider ist die Backzeit m.E. nach zu lang angegeben, oder der die Temperatur ist zu hoch - ich habe das Blech nach 17 Minuten herausgeholt und der Kuchen ist leider sehr braun... ich hoffe, es ist noch gut gegangen und er schmeckt noch.",
+			"author": {
+				"@type": "Person",
+				"name": "Hanna"
+			},
+			"datePublished": "2024-07-11"
+		},
+		{
+			"@type": "Review",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Ich h\u00e4tte eine Frage kann ich statt Sahne auch Milch verwenden?",
+			"author": {
+				"@type": "Person",
+				"name": "Naomi"
+			},
+			"datePublished": "2024-07-03"
+		},
+		{
+			"@type": "Review",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Tolles Rezept..... habe ich sofort ausprobiert.Der Butterkuchen war superlecker.Kann ich nur weiterempfehlen.Der Tipp mit der Sahne war prima.Dadurch wurde der Butterkuchen sch\u00f6n saftig.Besser als vom B\u00e4cker.\ud83d\ude0b",
+			"author": {
+				"@type": "Person",
+				"name": "Angelika"
+			},
+			"datePublished": "2024-06-29"
+		},
+		{
+			"@type": "Review",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "",
+			"author": {
+				"@type": "Person",
+				"name": "Barbara"
+			},
+			"datePublished": "2024-06-13"
+		}
+	]
 }

@@ -1,3 +1,6 @@
+import { DefaultCatchBoundary } from "@/components/DefaultCatchBoundary";
+import { NotFound } from "@/components/NotFound";
+import { StickyNavbar } from "@/components/StickyNavbar";
 import type { QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools/production";
 import {
@@ -9,9 +12,6 @@ import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Meta, Scripts } from "@tanstack/start";
 import type * as React from "react";
 import { Toaster } from "react-hot-toast";
-import { DefaultCatchBoundary } from "@/components/DefaultCatchBoundary";
-import { NotFound } from "@/components/NotFound";
-import { StickyNavbar } from "@/components/StickyNavbar";
 
 import { Footer } from "@/components/pages/home/Footer";
 import appCss from "@/styles/app.css?url";

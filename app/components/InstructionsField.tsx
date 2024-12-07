@@ -1,8 +1,8 @@
-import { useFieldArray, Control } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { X } from "lucide-react";
 import type { RecipeFormData } from "@/db/recipeSchema";
+import { X } from "lucide-react";
+import { type Control, useFieldArray } from "react-hook-form";
 
 interface InstructionsFieldProps {
 	control: Control<RecipeFormData>;

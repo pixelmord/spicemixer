@@ -2,8 +2,6 @@ import { defineSchema, defineTable } from "convex/server";
 import { type Infer, v } from "convex/values";
 
 const schema = defineSchema({
-
-
 	recipes: defineTable({
 		name: v.string(),
 		description: v.string(),
@@ -47,7 +45,6 @@ const schema = defineSchema({
 export default schema;
 
 const recipe = schema.tables.recipes.validator;
-
 
 export const updateRecipeSchema = v.object({
 	id: v.id("recipes"),

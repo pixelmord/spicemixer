@@ -5,7 +5,6 @@ import type { Id } from "convex/_generated/dataModel";
 import { useForm } from "react-hook-form";
 import type { ControllerRenderProps, FieldValues } from "react-hook-form";
 
-import { convexQuery } from "@convex-dev/react-query";
 import { Loader } from "@/components/Loader";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,6 +24,7 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { convexQuery } from "@convex-dev/react-query";
 
 import { ArrayField } from "@/components/ArrayField";
 import { InstructionsField } from "@/components/InstructionsField";

@@ -1,43 +1,44 @@
 {
-  "@context": "https://schema.org/",
-  "@type": "Recipe",
-  "name": "Thailändische Hühnersuppe mit Garnelen (Tom Ka Gai)",
-  "description": "Thailändische Hühnersuppe mit Garnelen (Tom Ka Gai) - a delicious Thai-inspired chicken soup recipe.",
-  "recipeCuisine": "Thai",
-  "recipeIngredient": [
-    "Hähnchenbrustfilet",
-    "Ingwer [mehr]",
-    "Korianderwurzeln",
-    "Zitronengras [mehr]",
-    "Käffir-Blätter [mehr]",
-    "Hühnerbrühe",
-    "Kokosmilch 1 Dose (0,4 l)",
-    "Austernpilze 250 g",
-    "rote Vogelaugenchilis",
-    "Peperonis 4",
-    "Chilipaste 2 TL gebratene",
-    "Limettensaft 2 EL",
-    "Riesengarnelen",
-    "Salz",
-    "Pfeffer aus der Mühle",
-    "16 Cherry-Tomaten"
-  ],
-  "recipeInstructions": [
-    {
-      "@type": "HowToStep",
-      "text": " Hähnchenbrustfilet in dünne Streifen schneiden und in eine Stielkasserolle legen. Den Ingwer in dünne Scheiben schneiden und die Korianderwurzeln fein hacken. Käffir-Limettenblätter in feine Streifen schneiden. Zusammen mit dem Zitronengras in die Kasserolle geben. Mit der Brühe und der Kokosmilch auffüllen. Das Ganze circa zwei Minuten köcheln lassen."
-    },
-    {
-      "@type": "HowToStep",
-      "text": " Austernpilze hacken und mit den Chilis, Peperonis, der Chilipaste und dem Limettensaft zu der Suppe geben und weitere drei Minuten köcheln lassen."
-    },
-    {
-      "@type": "HowToStep",
-      "text": " Die Riesengarnelen mit Salz und Pfeffer würzen und in einer Pfanne zwei Minuten braten."
-    },
-    {
-      "@type": "HowToStep",
-      "text": " Cherry-Tomaten halbieren und zu der Suppe geben, die Flüssigkeit noch zwei Minten ziehen lassen. Mit Salz und Tabasco abschmecken. Das Zitronengras herausnehmen und die Einlage auf vier Pastateller verteilen, die Riesengarnelen dazugeben und mit der Suppe aufgießen. Zum Schluss die Suppe mit Koriander garnieren."
-    }
-  ]
+	"@context": "https://schema.org/",
+	"@type": "Recipe",
+	"name": "Thailändische Hühnersuppe mit Garnelen (Tom Ka Gai)",
+	"description": "Thailändische Hühnersuppe mit Garnelen (Tom Ka Gai) - a delicious Thai-inspired chicken soup recipe.",
+	"recipeCuisine": "Thai",
+	"recipeIngredient": [
+		"Hähnchenbrustfilet",
+		"Ingwer [mehr]",
+		"Korianderwurzeln",
+		"Zitronengras [mehr]",
+		"Käffir-Blätter [mehr]",
+		"Hühnerbrühe",
+		"Kokosmilch 1 Dose (0,4 l)",
+		"Austernpilze 250 g",
+		"rote Vogelaugenchilis",
+		"Peperonis 4",
+		"Chilipaste 2 TL gebratene",
+		"Limettensaft 2 EL",
+		"Riesengarnelen",
+		"Salz",
+		"Pfeffer aus der Mühle",
+		"16 Cherry-Tomaten"
+	],
+	"image": ["/images/thaisuppe_photo-1548943487-a2e4e43b4853.avif"],
+	"recipeInstructions": [
+		{
+			"@type": "HowToStep",
+			"text": " Hähnchenbrustfilet in dünne Streifen schneiden und in eine Stielkasserolle legen. Den Ingwer in dünne Scheiben schneiden und die Korianderwurzeln fein hacken. Käffir-Limettenblätter in feine Streifen schneiden. Zusammen mit dem Zitronengras in die Kasserolle geben. Mit der Brühe und der Kokosmilch auffüllen. Das Ganze circa zwei Minuten köcheln lassen."
+		},
+		{
+			"@type": "HowToStep",
+			"text": " Austernpilze hacken und mit den Chilis, Peperonis, der Chilipaste und dem Limettensaft zu der Suppe geben und weitere drei Minuten köcheln lassen."
+		},
+		{
+			"@type": "HowToStep",
+			"text": " Die Riesengarnelen mit Salz und Pfeffer würzen und in einer Pfanne zwei Minuten braten."
+		},
+		{
+			"@type": "HowToStep",
+			"text": " Cherry-Tomaten halbieren und zu der Suppe geben, die Flüssigkeit noch zwei Minten ziehen lassen. Mit Salz und Tabasco abschmecken. Das Zitronengras herausnehmen und die Einlage auf vier Pastateller verteilen, die Riesengarnelen dazugeben und mit der Suppe aufgießen. Zum Schluss die Suppe mit Koriander garnieren."
+		}
+	]
 }

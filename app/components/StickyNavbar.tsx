@@ -2,8 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { Button } from "./ui/button";
 
 export function StickyNavbar() {
-
-
 	return (
 		<div className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60 dark:border-slate-800">
 			<div className="container flex h-16 items-center justify-between px-4">
