@@ -30,7 +30,7 @@ export function EditableText({
 			onSubmit={(event) => {
 				event.preventDefault();
 
-				onChange(inputRef.current!.value);
+				onChange(inputRef.current?.value);
 
 				flushSync(() => {
 					setEdit(false);
@@ -60,7 +60,7 @@ export function EditableText({
 						inputRef.current?.value !== value &&
 						inputRef.current?.value.trim() !== ""
 					) {
-						onChange(inputRef.current!.value);
+						onChange(inputRef.current?.value);
 					}
 					setEdit(false);
 				}}

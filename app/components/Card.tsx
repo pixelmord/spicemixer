@@ -71,14 +71,13 @@ export const Card = forwardRef<HTMLLIElement, CardProps>(
 
 					setAcceptDrop("none");
 				}}
-				className={
-					"border-t-2 border-b-2 -mb-[2px] last:mb-0 cursor-grab active:cursor-grabbing px-2 py-1 " +
-					(acceptDrop === "top"
+				className={`border-t-2 border-b-2 -mb-[2px] last:mb-0 cursor-grab active:cursor-grabbing px-2 py-1 ${
+					acceptDrop === "top"
 						? "border-t-red-500 border-b-transparent"
 						: acceptDrop === "bottom"
 							? "border-b-red-500 border-t-transparent"
-							: "border-t-transparent border-b-transparent")
-				}
+							: "border-t-transparent border-b-transparent"
+				}`}
 			>
 				<div
 					draggable
