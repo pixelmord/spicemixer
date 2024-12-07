@@ -1,14 +1,25 @@
-// app/routes/__root.tsx
+import type { QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools/production";
 import {
 	Outlet,
 	ScrollRestoration,
-	createRootRoute,
+	createRootRouteWithContext,
 } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Meta, Scripts } from "@tanstack/start";
-import type { ReactNode } from "react";
-import appCss from "@/styles/app.css?url";
+import type * as React from "react";
+import { Toaster } from "react-hot-toast";
+import { DefaultCatchBoundary } from "@/components/DefaultCatchBoundary";
+import { NotFound } from "@/components/NotFound";
+import { StickyNavbar } from "@/components/StickyNavbar";
 
-export const Route = createRootRoute({
+import { Footer } from "@/components/pages/home/Footer";
+import appCss from "@/styles/app.css?url";
+import { seo } from "@/utils/seo";
+
+export const Route = createRootRouteWithContext<{
+	queryClient: QueryClient;
+}>()({
 	head: () => ({
 		meta: [
 			{
@@ -18,11 +29,13 @@ export const Route = createRootRoute({
 				name: "viewport",
 				content: "width=device-width, initial-scale=1",
 			},
-			{
-				title: "TanStack Start Starter",
-			},
+			...seo({
+				title: "Spicemixer | For cooks that love to spice things",
+				description:
+					"Collect your spice mixes, recipes and explore what you can cook with a beautiful mix of spices and ingredients.",
+			}),
 		],
-        links: [
+		links: [
 			{ rel: "stylesheet", href: appCss },
 			{
 				rel: "apple-touch-icon",
@@ -45,6 +58,14 @@ export const Route = createRootRoute({
 			{ rel: "icon", href: "/favicon.ico" },
 		],
 	}),
+	errorComponent: (props) => {
+		return (
+			<RootDocument>
+				<DefaultCatchBoundary {...props} />
+			</RootDocument>
+		);
+	},
+	notFoundComponent: () => <NotFound />,
 	component: RootComponent,
 });
 
@@ -56,15 +77,24 @@ function RootComponent() {
 	);
 }
 
-function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
+function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
+		<html lang="en" className="dark">
 			<head>
 				<Meta />
 			</head>
-			<body>
-				{children}
+			<body className="min-h-screen bg-background font-sans antialiased">
+				<div className="relative flex min-h-screen flex-col">
+					<StickyNavbar />
+					<main className="flex-1">
+						{children}
+						<Toaster />
+					</main>
+					<Footer />
+				</div>
 				<ScrollRestoration />
+				<ReactQueryDevtools />
+				<TanStackRouterDevtools position="bottom-right" />
 				<Scripts />
 			</body>
 		</html>

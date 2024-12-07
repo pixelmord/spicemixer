@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Ungarische Gulaschsuppe",
+  "description": "Eine traditionelle ungarische Gulaschsuppe mit Rindfleisch, Gemüse und Rotwein",
+  "recipeYield": "10 servings",
+  "recipeCuisine": "Hungarian",
+  "recipeCategory": "Soup",
+  "recipeIngredient": [
+    "600g Zwiebeln",
+    "1 Knoblauchknolle",
+    "1 TL Kümmel",
+    "3 EL Edelsüß-Paprikapulver",
+    "2kg Entrecote",
+    "1.5 EL Salz",
+    "300g Karotten",
+    "200g Sellerie",
+    "1200g Kartoffeln",
+    "1/2 Flasche Rotwein"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Zwiebeln in kleine Würfel schneiden und mit der Knoblauchknolle glasig anschwitzen."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mit dem gemahlenen Kümmel und dem Paprikapulver bestäuben, mit Wasser auffüllen und reduzieren lassen."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Das Entrecote in einen halben Zentimeter große Würfel schneiden und dazugeben. Solange mitkochen lassen, bis es weiß ist."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Nun erst das Salz dazugeben, das Fleisch fertig garen und die Gemüsewürfel mitkochen lassen."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Bevor die Gemüsewürfel gar sind, die Kartoffelwürfel dazugeben und garziehen lassen."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mit dem Rotwein ablöschen, alles etwas einkochen lassen und mit fein geschnittenem Selleriegrün dekorieren."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Süddeutsche gebundene Zwiebelsuppe",
+  "description": "Eine traditionelle süddeutsche Zwiebelsuppe mit Eigelb gebunden und auf gerösteten Brotscheiben serviert.",
+  "recipeCategory": "Soup",
+  "recipeCuisine": "German",
+  "recipeIngredient": [
+    "7 Zwiebeln",
+    "150g Butter",
+    "3 EL Mehl",
+    "2.25l Bouillon",
+    "5 Eigelb",
+    "Salz",
+    "Pfeffer",
+    "Brotscheiben"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Zwiebeln fein hacken und mit Butter gelb anbraten."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mehl dazugeben und etwas mitrösten."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Bouillon, etwas Salz und gemahlenen Pfeffer dazu gießen, schwach kochen lassen."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Die Suppe durch ein Sieb streichen, nochmals zum Kochen bringen."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Eigelbe mit etwas Suppe verquirlen, Suppe damit abrühren."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Auf in Butter gerösteten Brotscheiben anrichten."
+    }
+  ]
+}

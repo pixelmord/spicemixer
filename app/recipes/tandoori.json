@@ -1,0 +1,134 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Recipe",
+  "articleBody": "Tandoori chicken gets its name from the vessel in which it’s cooked: the tandoor, a traditional clay oven used to cook foods at a very high heat. Although we don’t have a tandoor, we have devised a method to prepare this Indian dish at home. The longer you marinate the chicken and potatoes, the more intense the flavor. But we have found that even after only 30 minutes of marinating, the dish is infused with plenty of flavor.",
+  "alternativeHeadline": "The longer you marinate the chicken and potatoes, the more intense the flavor. But we have found that even after only 30 minutes of marinating, the dish is infused with flavor.",
+  "keywords": [
+    "indian",
+    "ginger",
+    "yogurt",
+    "lime",
+    "jalapeño",
+    "chicken",
+    "yukon gold potato",
+    "broccoli/broccolini",
+    "crimini mushroom",
+    "main",
+    "dinner",
+    "gluten free",
+    "nut free",
+    "sheet-pan dinners",
+    "roast",
+    "ramadan",
+    "cookbooks",
+    "web"
+  ],
+  "thumbnailUrl": "https://assets.epicurious.com/photos/5c7561811808bd2c8ed6ca39/1:1/w_3332,h_3332,c_limit/tandoori-chicken-sheet-pan-supper-recipe-HC-022619.jpg",
+  "publisher": {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Epicurious",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.epicurious.com/verso/static/epicurious-us/assets/logo-seo.png",
+      "width": "488px",
+      "height": "100px"
+    },
+    "url": "https://www.epicurious.com"
+  },
+  "isPartOf": { "@type": "CreativeWork", "name": "Epicurious" },
+  "isAccessibleForFree": true,
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tracy Pollan",
+      "sameAs": "https://www.epicurious.com/contributor/tracy-pollan"
+    },
+    {
+      "@type": "Person",
+      "name": "Dana Pollan",
+      "sameAs": "https://www.epicurious.com/contributor/dana-pollan"
+    },
+    {
+      "@type": "Person",
+      "name": "Lori Pollan",
+      "sameAs": "https://www.epicurious.com/contributor/lori-pollan"
+    },
+    {
+      "@type": "Person",
+      "name": "Corky Pollan",
+      "sameAs": "https://www.epicurious.com/contributor/corky-pollan"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.7,
+    "ratingCount": 22
+  },
+  "description": "The longer you marinate the chicken and potatoes, the more intense the flavor. But we have found that even after only 30 minutes of marinating, the dish is infused with flavor.",
+  "image": [
+    "https://assets.epicurious.com/photos/5c7561811808bd2c8ed6ca39/16:9/w_4991,h_2807,c_limit/tandoori-chicken-sheet-pan-supper-recipe-HC-022619.jpg",
+    "https://assets.epicurious.com/photos/5c7561811808bd2c8ed6ca39/4:3/w_4444,h_3333,c_limit/tandoori-chicken-sheet-pan-supper-recipe-HC-022619.jpg",
+    "https://assets.epicurious.com/photos/5c7561811808bd2c8ed6ca39/1:1/w_3332,h_3332,c_limit/tandoori-chicken-sheet-pan-supper-recipe-HC-022619.jpg"
+  ],
+  "headline": "Tandoori Chicken and Vegetable Sheet-Pan Supper",
+  "name": "Tandoori Chicken and Vegetable Sheet-Pan Supper",
+  "recipeIngredient": [
+    "5 tablespoons organic canola oil",
+    "4 cloves garlic, minced",
+    "2 tablespoons grated fresh ginger",
+    "1 tablespoon chili powder",
+    "1 tablespoon garam masala",
+    "2 teaspoons ground cumin",
+    "2 teaspoons paprika",
+    "1 teaspoon ground turmeric",
+    "1 cup plain whole-milk yogurt",
+    "2 tablespoons fresh lime juice",
+    "1 jalapeño pepper, seeded and finely chopped",
+    "Kosher salt",
+    "Freshly ground black pepper",
+    "2 pounds bone-in, skin-on chicken parts (a mix of breasts, split and cut in half, thighs, and legs)",
+    "3/4 pound Yukon Gold potatoes, cut into 1-inch pieces",
+    "4 cups 1-inch cauliflower florets",
+    "4 cups 1-inch broccoli florets",
+    "8 small cremini mushrooms, stems trimmed",
+    "1/2 teaspoon fenugreek seeds or cumin seeds",
+    "1/2 cup red onion, halved lengthwise, then sliced into thin half-moons",
+    "Mango Chutney (homemade or your favorite store-bought chutney)"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "In a small skillet over medium heat, heat 2 tablespoons of the canola oil. Add the garlic and ginger and cook, stirring continuously, until light brown and fragrant, about 1 minute. Add the chili powder, garam masala, 1 teaspoon of the cumin, the paprika, and turmeric and cook, stirring continuously, for an additional minute. Set aside to cool."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a large bowl, combine the yogurt, lime juice, jalapeño pepper, 2 teaspoons salt, 1/8 teaspoon black pepper, and the spice mixture and stir to combine."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Using a sharp knife, score the skin of each piece of chicken, making two or three shallow cuts about 1 inch apart. Add the chicken and potatoes to the bowl with the spiced yogurt and massage the yogurt into the chicken until all the pieces are well coated. Transfer the chicken, potatoes, and spiced yogurt to a large zip-top freezer bag and  set aside for 30 minutes at room temperature or refrigerate for up to 8 hours."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Set a rack in the upper-third of the oven and preheat the oven to 425°F."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Place the cauliflower, broccoli, and mushrooms in a large bowl. Add the remaining 3 tablespoons canola oil, remaining 1 teaspoon cumin, the fenugreek seeds, 1/2 teaspoon salt, and 1/8 teaspoon black pepper and mix well."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove the marinated chicken from the bag, letting any excess marinade drip off, and arrange the pieces skin-side up on a rimmed baking sheet. Scatter the potatoes in and around the chicken. Roast for 20 minutes, then remove the pan from the oven and place the vegetables in a single layer in any spaces around the chicken. Return the pan to the oven and roast for an additional 20 minutes. Remove from the oven and switch the oven to broil."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sprinkle the red onion over the chicken and vegetables, return the baking sheet to the oven, and broil until the chicken is lightly charred and crispy, 2 to 3 minutes. Remove from the oven and serve with mango chutney, if desired."
+    }
+  ],
+  "totalTime": "1 hour 30 minutes",
+  "recipeYield": "4 servings",
+  "url": "https://www.epicurious.com/recipes/food/views/tandoori-chicken-and-vegetable-sheet-pan-supper",
+  "dateModified": "2019-03-13T18:04:01.209-04:00",
+  "datePublished": "2019-03-13T18:04:01.209-04:00"
+}
