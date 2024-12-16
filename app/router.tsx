@@ -6,11 +6,12 @@ import {
 } from "@tanstack/react-query";
 import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 import { routerWithQueryClient } from "@tanstack/react-router-with-query";
-import { ConvexProvider } from "convex/react";
+import { ConvexProvider, ConvexReactClient } from "convex/react";
 import toast from "react-hot-toast";
 import { DefaultCatchBoundary } from "./components/DefaultCatchBoundary";
 import { NotFound } from "./components/NotFound";
 import { routeTree } from "./routeTree.gen";
+import { ConvexAuthProvider } from "@convex-dev/auth/react";
 
 export function createRouter() {
 	if (typeof document !== "undefined") {
@@ -21,7 +22,8 @@ export function createRouter() {
 	if (!CONVEX_URL) {
 		console.error("missing envar CONVEX_URL");
 	}
-	const convexQueryClient = new ConvexQueryClient(CONVEX_URL);
+	const convex = new ConvexReactClient(CONVEX_URL);
+	const convexQueryClient = new ConvexQueryClient(convex);
 
 	const queryClient: QueryClient = new QueryClient({
 		defaultOptions: {
@@ -44,11 +46,10 @@ export function createRouter() {
 			defaultPreload: "intent",
 			defaultErrorComponent: DefaultCatchBoundary,
 			defaultNotFoundComponent: () => <NotFound />,
-			context: { queryClient },
+			// biome-ignore lint/style/noNonNullAssertion: <explanation>
+			context: { queryClient, auth: undefined! },
 			Wrap: ({ children }) => (
-				<ConvexProvider client={convexQueryClient.convexClient}>
-					{children}
-				</ConvexProvider>
+				<ConvexAuthProvider client={convex}>{children}</ConvexAuthProvider>
 			),
 		}),
 		queryClient,

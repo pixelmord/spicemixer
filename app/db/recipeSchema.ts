@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const recipeInstructionSchema = z.object({
-	type: z.string(),
+	type: z.literal("HowToStep"),
 	text: z.string().min(1, "Instruction text is required"),
 	position: z.number(),
 });

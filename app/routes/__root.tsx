@@ -16,9 +16,20 @@ import { Toaster } from "react-hot-toast";
 import { Footer } from "@/components/pages/home/Footer";
 import appCss from "@/styles/app.css?url";
 import { seo } from "@/utils/seo";
+import type { DataModel } from "convex/_generated/dataModel";
+import { api } from "convex/_generated/api";
+import { convexQuery } from "@convex-dev/react-query";
+
+import { ThemeProvider } from "@/components/ThemeProvider";
+
+export type AuthContext = {
+	isAuthenticated: boolean;
+	user?: DataModel["users"]["document"] | null;
+};
 
 export const Route = createRootRouteWithContext<{
 	queryClient: QueryClient;
+	auth: AuthContext;
 }>()({
 	head: () => ({
 		meta: [
@@ -58,6 +69,17 @@ export const Route = createRootRouteWithContext<{
 			{ rel: "icon", href: "/favicon.ico" },
 		],
 	}),
+	beforeLoad: async (ctx) => {
+		const user = await ctx.context.queryClient.ensureQueryData(
+			convexQuery(api.users.viewer, {}),
+		);
+		return {
+			auth: {
+				user,
+				isAuthenticated: !!user,
+			},
+		};
+	},
 	errorComponent: (props) => {
 		return (
 			<RootDocument>
@@ -79,18 +101,32 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className="dark">
+		<html lang="en">
 			<head>
+				<script>
+					{`
+						if (
+							localStorage['vite-ui-theme'] === 'dark' ||
+							(!('vite-ui-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+						) {
+							document.documentElement.classList.add('dark');
+						} else {
+							document.documentElement.classList.remove('dark');
+						}
+					`}
+				</script>
 				<Meta />
 			</head>
 			<body className="min-h-screen bg-background font-sans antialiased">
 				<div className="relative flex min-h-screen flex-col">
-					<StickyNavbar />
-					<main className="flex-1">
-						{children}
-						<Toaster />
-					</main>
-					<Footer />
+					<ThemeProvider>
+						<StickyNavbar />
+						<main className="flex-1">
+							{children}
+							<Toaster />
+						</main>
+						<Footer />
+					</ThemeProvider>
 				</div>
 				<ScrollRestoration />
 				<ReactQueryDevtools />

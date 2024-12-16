@@ -1,7 +1,15 @@
+import { api } from "./_generated/api";
+import {
+	recipeFormSchema,
+	type recipeInstructionSchema,
+	type RecipeFormData,
+} from "./../app/db/recipeSchema";
 import { v } from "convex/values";
 import { Doc, Id } from "./_generated/dataModel";
-import { internalMutation, mutation, query } from "./_generated/server";
+import { action, internalMutation, mutation, query } from "./_generated/server";
 import { updateRecipeSchema } from "./schema";
+import { z } from "zod";
+import * as cheerio from "cheerio";
 
 export const seed = internalMutation(async (ctx) => {
 	const allRecipes = await ctx.db.query("recipes").collect();
@@ -223,5 +231,131 @@ export const getTopRated = query({
 			.withIndex("by_rating")
 			.order("desc")
 			.take(limit);
+	},
+});
+
+export const createRecipefromUrl = action({
+	args: { url: v.string() },
+	handler: async (ctx, args) => {
+		console.log(args.url);
+		try {
+			const response = await fetch(args.url);
+			console.log(response);
+			if (!response.ok) {
+				throw new Error(
+					`Failed to fetch URL: ${response.status} ${response.statusText}`,
+				);
+			}
+
+			const html = await response.text();
+			const $ = cheerio.load(html);
+
+			// Find all script tags with type application/ld+json
+			const jsonLdScripts = $('script[type="application/ld+json"]');
+			console.log(jsonLdScripts);
+			// Look through all ld+json scripts for Recipe schema
+			let recipeData: Partial<RecipeFormData> | null = null;
+
+			jsonLdScripts.each((_, element) => {
+				try {
+					const content = $(element).html();
+					if (!content) return;
+
+					const jsonContent = JSON.parse(content);
+
+					// Handle both single objects and arrays of objects
+					const items = Array.isArray(jsonContent)
+						? jsonContent
+						: [jsonContent];
+
+					for (const item of items) {
+						console.log(item);
+						if (item["@type"] === "Recipe") {
+							// Transform the LD+JSON recipe data to match RecipeFormData structure
+							recipeData = {
+								name: item.name || "",
+								description: item.description || "",
+								author: item.author?.name || "Unknown",
+								image: Array.isArray(item.image)
+									? item.image
+									: [item.image || ""],
+								prepTime: item.prepTime || "PT0M",
+								cookTime: item.cookTime || "PT0M",
+								totalTime: item.totalTime || "PT0M",
+								recipeYield: item.recipeYield?.toString() || "1 serving",
+								recipeCategory: Array.isArray(item.recipeCategory)
+									? item.recipeCategory
+									: [item.recipeCategory || "Other"],
+								recipeCuisine: Array.isArray(item.recipeCuisine)
+									? item.recipeCuisine
+									: [item.recipeCuisine || "Other"],
+								recipeIngredient: Array.isArray(item.recipeIngredient)
+									? item.recipeIngredient
+									: [item.recipeIngredient || ""],
+								recipeInstructions: Array.isArray(item.recipeInstructions)
+									? item.recipeInstructions.map(
+											(
+												instruction:
+													| z.infer<typeof recipeInstructionSchema>
+													| string,
+												index: number,
+											) => ({
+												type: "HowToStep",
+												text:
+													typeof instruction === "string"
+														? instruction
+														: instruction.text || "",
+												position: index + 1,
+											}),
+										)
+									: [
+											{
+												type: "HowToStep",
+												text: item.recipeInstructions?.toString() || "",
+												position: 1,
+											},
+										],
+								nutrition: {
+									calories: item.nutrition?.calories || undefined,
+									proteinContent: item.nutrition?.proteinContent || undefined,
+									fatContent: item.nutrition?.fatContent || undefined,
+									carbohydrateContent:
+										item.nutrition?.carbohydrateContent || undefined,
+									servingSize: item.nutrition?.servingSize || undefined,
+								},
+								keywords: Array.isArray(item.keywords)
+									? item.keywords
+									: item.keywords?.split(",").map((k: string) => k.trim()) ||
+										[],
+								suitableForDiet: Array.isArray(item.suitableForDiet)
+									? item.suitableForDiet
+									: item.suitableForDiet
+										? [item.suitableForDiet]
+										: [],
+								difficulty: "medium", // Default value
+								rating: undefined,
+							};
+							return false; // Break the loop
+						}
+					}
+				} catch (e) {
+					console.error("Error parsing JSON-LD script:", e);
+				}
+			});
+
+			if (!recipeData) {
+				throw new Error("No Recipe schema found in the page");
+			}
+
+			// Validate the recipe data against the schema
+			const validatedData = recipeFormSchema.parse(recipeData);
+
+			await ctx.runMutation(api.recipes.create, validatedData);
+		} catch (error) {
+			if (error instanceof z.ZodError) {
+				throw new Error(`Invalid recipe data: ${error.message}`);
+			}
+			throw new Error("Failed to parse recipe");
+		}
 	},
 });
