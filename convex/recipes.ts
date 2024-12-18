@@ -10,7 +10,7 @@ import { action, internalMutation, mutation, query } from "./_generated/server";
 import { updateRecipeSchema } from "./schema";
 import { z } from "zod";
 import * as cheerio from "cheerio";
-
+import { filter } from "convex-helpers/server/filter";
 export const seed = internalMutation(async (ctx) => {
 	const allRecipes = await ctx.db.query("recipes").collect();
 	if (allRecipes.length > 0) {
@@ -135,7 +135,7 @@ export const get = query({
 	},
 });
 
-// List all recipes with optional filtering and pagination
+// List recent recipes with optional category filtering
 export const list = query({
 	args: {
 		category: v.optional(v.string()),
@@ -143,30 +143,68 @@ export const list = query({
 		limit: v.optional(v.number()),
 		cursor: v.optional(v.id("recipes")),
 	},
-	handler: async (ctx, args) => {
+	handler: (ctx, args) => {
 		const limit = args.limit ?? 10;
 
 		if (args.category !== undefined) {
 			const category = args.category;
-			return await ctx.db
-				.query("recipes")
-				.withIndex("by_category")
-				.filter((q) => q.eq(q.field("recipeCategory"), [category]))
+			return filter(ctx.db.query("recipes"), (recipe) =>
+				recipe.recipeCategory?.includes(category),
+			)
 				.order("desc")
 				.take(limit);
 		}
 
 		if (args.cuisine !== undefined) {
 			const cuisine = args.cuisine;
-			return await ctx.db
-				.query("recipes")
-				.withIndex("by_cuisine")
-				.filter((q) => q.eq(q.field("recipeCuisine"), [cuisine]))
+			return filter(ctx.db.query("recipes"), (recipe) =>
+				recipe.recipeCuisine?.includes(cuisine),
+			)
 				.order("desc")
 				.take(limit);
 		}
 
-		return await ctx.db.query("recipes").order("desc").take(limit);
+		return ctx.db.query("recipes").order("desc").take(limit);
+	},
+});
+
+// Get top 5 most used recipe categories
+export const getCategories = query({
+	args: {},
+	handler: async (ctx) => {
+		const recipes = await ctx.db.query("recipes").collect();
+		const categoryCount = new Map<string, number>();
+		categoryCount.set("All", recipes.length); // All category counts all recipes
+
+		recipes.forEach((recipe) => {
+			recipe.recipeCategory?.forEach((category) => {
+				categoryCount.set(category, (categoryCount.get(category) ?? 0) + 1);
+			});
+		});
+
+		// Convert to array, sort by count, and take top 5
+		return Array.from(categoryCount.entries())
+			.sort((a, b) => b[1] - a[1])
+			.slice(0, 5)
+			.map(([category]) => category);
+	},
+});
+
+// Get all unique recipe categories
+export const getAllCategories = query({
+	args: {},
+	handler: async (ctx) => {
+		const recipes = await ctx.db.query("recipes").collect();
+		const categories = new Set<string>();
+		categories.add("All"); // Always include "All" category
+
+		recipes.forEach((recipe) => {
+			recipe.recipeCategory?.forEach((category) => {
+				categories.add(category);
+			});
+		});
+
+		return Array.from(categories).sort();
 	},
 });
 

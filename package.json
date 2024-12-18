@@ -47,6 +47,7 @@
 		"clsx": "^2.1.1",
 		"concurrently": "^9.1.0",
 		"convex": "^1.17.3",
+		"convex-helpers": "^0.1.67",
 		"date-fns": "^4.1.0",
 		"embla-carousel-react": "^8.5.1",
 		"ky": "^1.7.2",
