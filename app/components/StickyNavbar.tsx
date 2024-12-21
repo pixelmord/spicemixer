@@ -1,8 +1,8 @@
-import { Link } from "@tanstack/react-router";
-import { Button } from "./ui/button";
-import { Unauthenticated, Authenticated } from "convex/react";
 import { useAuthActions } from "@convex-dev/auth/react";
+import { Link } from "@tanstack/react-router";
+import { Authenticated, Unauthenticated } from "convex/react";
 import { ModeToggle } from "./ModeToggle";
+import { Button } from "./ui/button";
 
 export function StickyNavbar() {
 	const { signIn } = useAuthActions();

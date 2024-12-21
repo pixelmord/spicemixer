@@ -10,161 +10,161 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as AuthedImport } from './routes/_authed'
-import { Route as IndexImport } from './routes/index'
-import { Route as RecipesIndexImport } from './routes/recipes/index'
-import { Route as RecipesRecipeIdIndexImport } from './routes/recipes/$recipeId/index'
-import { Route as AuthedRecipesRecipeIdEditImport } from './routes/_authed/recipes/$recipeId/edit'
+import { Route as rootRoute } from "./routes/__root";
+import { Route as AuthedImport } from "./routes/_authed";
+import { Route as AuthedRecipesRecipeIdEditImport } from "./routes/_authed/recipes/$recipeId/edit";
+import { Route as IndexImport } from "./routes/index";
+import { Route as RecipesRecipeIdIndexImport } from "./routes/recipes/$recipeId/index";
+import { Route as RecipesIndexImport } from "./routes/recipes/index";
 
 // Create/Update Routes
 
 const AuthedRoute = AuthedImport.update({
-  id: '/_authed',
-  getParentRoute: () => rootRoute,
-} as any)
+	id: "/_authed",
+	getParentRoute: () => rootRoute,
+} as any);
 
 const IndexRoute = IndexImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRoute,
-} as any)
+	id: "/",
+	path: "/",
+	getParentRoute: () => rootRoute,
+} as any);
 
 const RecipesIndexRoute = RecipesIndexImport.update({
-  id: '/recipes/',
-  path: '/recipes/',
-  getParentRoute: () => rootRoute,
-} as any)
+	id: "/recipes/",
+	path: "/recipes/",
+	getParentRoute: () => rootRoute,
+} as any);
 
 const RecipesRecipeIdIndexRoute = RecipesRecipeIdIndexImport.update({
-  id: '/recipes/$recipeId/',
-  path: '/recipes/$recipeId/',
-  getParentRoute: () => rootRoute,
-} as any)
+	id: "/recipes/$recipeId/",
+	path: "/recipes/$recipeId/",
+	getParentRoute: () => rootRoute,
+} as any);
 
 const AuthedRecipesRecipeIdEditRoute = AuthedRecipesRecipeIdEditImport.update({
-  id: '/recipes/$recipeId/edit',
-  path: '/recipes/$recipeId/edit',
-  getParentRoute: () => AuthedRoute,
-} as any)
+	id: "/recipes/$recipeId/edit",
+	path: "/recipes/$recipeId/edit",
+	getParentRoute: () => AuthedRoute,
+} as any);
 
 // Populate the FileRoutesByPath interface
 
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/_authed': {
-      id: '/_authed'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof AuthedImport
-      parentRoute: typeof rootRoute
-    }
-    '/recipes/': {
-      id: '/recipes/'
-      path: '/recipes'
-      fullPath: '/recipes'
-      preLoaderRoute: typeof RecipesIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/recipes/$recipeId/': {
-      id: '/recipes/$recipeId/'
-      path: '/recipes/$recipeId'
-      fullPath: '/recipes/$recipeId'
-      preLoaderRoute: typeof RecipesRecipeIdIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/_authed/recipes/$recipeId/edit': {
-      id: '/_authed/recipes/$recipeId/edit'
-      path: '/recipes/$recipeId/edit'
-      fullPath: '/recipes/$recipeId/edit'
-      preLoaderRoute: typeof AuthedRecipesRecipeIdEditImport
-      parentRoute: typeof AuthedImport
-    }
-  }
+declare module "@tanstack/react-router" {
+	interface FileRoutesByPath {
+		"/": {
+			id: "/";
+			path: "/";
+			fullPath: "/";
+			preLoaderRoute: typeof IndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/_authed": {
+			id: "/_authed";
+			path: "";
+			fullPath: "";
+			preLoaderRoute: typeof AuthedImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/recipes/": {
+			id: "/recipes/";
+			path: "/recipes";
+			fullPath: "/recipes";
+			preLoaderRoute: typeof RecipesIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/recipes/$recipeId/": {
+			id: "/recipes/$recipeId/";
+			path: "/recipes/$recipeId";
+			fullPath: "/recipes/$recipeId";
+			preLoaderRoute: typeof RecipesRecipeIdIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/_authed/recipes/$recipeId/edit": {
+			id: "/_authed/recipes/$recipeId/edit";
+			path: "/recipes/$recipeId/edit";
+			fullPath: "/recipes/$recipeId/edit";
+			preLoaderRoute: typeof AuthedRecipesRecipeIdEditImport;
+			parentRoute: typeof AuthedImport;
+		};
+	}
 }
 
 // Create and export the route tree
 
 interface AuthedRouteChildren {
-  AuthedRecipesRecipeIdEditRoute: typeof AuthedRecipesRecipeIdEditRoute
+	AuthedRecipesRecipeIdEditRoute: typeof AuthedRecipesRecipeIdEditRoute;
 }
 
 const AuthedRouteChildren: AuthedRouteChildren = {
-  AuthedRecipesRecipeIdEditRoute: AuthedRecipesRecipeIdEditRoute,
-}
+	AuthedRecipesRecipeIdEditRoute: AuthedRecipesRecipeIdEditRoute,
+};
 
 const AuthedRouteWithChildren =
-  AuthedRoute._addFileChildren(AuthedRouteChildren)
+	AuthedRoute._addFileChildren(AuthedRouteChildren);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '': typeof AuthedRouteWithChildren
-  '/recipes': typeof RecipesIndexRoute
-  '/recipes/$recipeId': typeof RecipesRecipeIdIndexRoute
-  '/recipes/$recipeId/edit': typeof AuthedRecipesRecipeIdEditRoute
+	"/": typeof IndexRoute;
+	"": typeof AuthedRouteWithChildren;
+	"/recipes": typeof RecipesIndexRoute;
+	"/recipes/$recipeId": typeof RecipesRecipeIdIndexRoute;
+	"/recipes/$recipeId/edit": typeof AuthedRecipesRecipeIdEditRoute;
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '': typeof AuthedRouteWithChildren
-  '/recipes': typeof RecipesIndexRoute
-  '/recipes/$recipeId': typeof RecipesRecipeIdIndexRoute
-  '/recipes/$recipeId/edit': typeof AuthedRecipesRecipeIdEditRoute
+	"/": typeof IndexRoute;
+	"": typeof AuthedRouteWithChildren;
+	"/recipes": typeof RecipesIndexRoute;
+	"/recipes/$recipeId": typeof RecipesRecipeIdIndexRoute;
+	"/recipes/$recipeId/edit": typeof AuthedRecipesRecipeIdEditRoute;
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/_authed': typeof AuthedRouteWithChildren
-  '/recipes/': typeof RecipesIndexRoute
-  '/recipes/$recipeId/': typeof RecipesRecipeIdIndexRoute
-  '/_authed/recipes/$recipeId/edit': typeof AuthedRecipesRecipeIdEditRoute
+	__root__: typeof rootRoute;
+	"/": typeof IndexRoute;
+	"/_authed": typeof AuthedRouteWithChildren;
+	"/recipes/": typeof RecipesIndexRoute;
+	"/recipes/$recipeId/": typeof RecipesRecipeIdIndexRoute;
+	"/_authed/recipes/$recipeId/edit": typeof AuthedRecipesRecipeIdEditRoute;
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | ''
-    | '/recipes'
-    | '/recipes/$recipeId'
-    | '/recipes/$recipeId/edit'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/recipes' | '/recipes/$recipeId' | '/recipes/$recipeId/edit'
-  id:
-    | '__root__'
-    | '/'
-    | '/_authed'
-    | '/recipes/'
-    | '/recipes/$recipeId/'
-    | '/_authed/recipes/$recipeId/edit'
-  fileRoutesById: FileRoutesById
+	fileRoutesByFullPath: FileRoutesByFullPath;
+	fullPaths:
+		| "/"
+		| ""
+		| "/recipes"
+		| "/recipes/$recipeId"
+		| "/recipes/$recipeId/edit";
+	fileRoutesByTo: FileRoutesByTo;
+	to: "/" | "" | "/recipes" | "/recipes/$recipeId" | "/recipes/$recipeId/edit";
+	id:
+		| "__root__"
+		| "/"
+		| "/_authed"
+		| "/recipes/"
+		| "/recipes/$recipeId/"
+		| "/_authed/recipes/$recipeId/edit";
+	fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AuthedRoute: typeof AuthedRouteWithChildren
-  RecipesIndexRoute: typeof RecipesIndexRoute
-  RecipesRecipeIdIndexRoute: typeof RecipesRecipeIdIndexRoute
+	IndexRoute: typeof IndexRoute;
+	AuthedRoute: typeof AuthedRouteWithChildren;
+	RecipesIndexRoute: typeof RecipesIndexRoute;
+	RecipesRecipeIdIndexRoute: typeof RecipesRecipeIdIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AuthedRoute: AuthedRouteWithChildren,
-  RecipesIndexRoute: RecipesIndexRoute,
-  RecipesRecipeIdIndexRoute: RecipesRecipeIdIndexRoute,
-}
+	IndexRoute: IndexRoute,
+	AuthedRoute: AuthedRouteWithChildren,
+	RecipesIndexRoute: RecipesIndexRoute,
+	RecipesRecipeIdIndexRoute: RecipesRecipeIdIndexRoute,
+};
 
 export const routeTree = rootRoute
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+	._addFileChildren(rootRouteChildren)
+	._addFileTypes<FileRouteTypes>();
 
 /* ROUTE_MANIFEST_START
 {

@@ -1,8 +1,8 @@
-import { useQuery } from "convex/react";
-import { api } from "convex/_generated/api";
-import * as Tabs from "@radix-ui/react-tabs";
 import { cn } from "@/lib/utils";
+import * as Tabs from "@radix-ui/react-tabs";
 import { Link } from "@tanstack/react-router";
+import { api } from "convex/_generated/api";
+import { useQuery } from "convex/react";
 import { useState } from "react";
 
 export function RecipeCategories() {

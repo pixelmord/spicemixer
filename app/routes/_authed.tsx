@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useAuthActions } from "@convex-dev/auth/react";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { z } from "zod";
 
 const fallback = "/" as const;

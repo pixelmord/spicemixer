@@ -1,3 +1,4 @@
+import { ConvexAuthProvider } from "@convex-dev/auth/react";
 import { ConvexQueryClient } from "@convex-dev/react-query";
 import {
 	MutationCache,
@@ -11,7 +12,6 @@ import toast from "react-hot-toast";
 import { DefaultCatchBoundary } from "./components/DefaultCatchBoundary";
 import { NotFound } from "./components/NotFound";
 import { routeTree } from "./routeTree.gen";
-import { ConvexAuthProvider } from "@convex-dev/auth/react";
 
 export function createRouter() {
 	if (typeof document !== "undefined") {

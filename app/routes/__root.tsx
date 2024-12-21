@@ -16,9 +16,9 @@ import { Toaster } from "react-hot-toast";
 import { Footer } from "@/components/pages/home/Footer";
 import appCss from "@/styles/app.css?url";
 import { seo } from "@/utils/seo";
-import type { DataModel } from "convex/_generated/dataModel";
-import { api } from "convex/_generated/api";
 import { convexQuery } from "@convex-dev/react-query";
+import { api } from "convex/_generated/api";
+import type { DataModel } from "convex/_generated/dataModel";
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 
