@@ -1,6 +1,7 @@
 import * as cheerio from "cheerio";
 import { filter } from "convex-helpers/server/filter";
 import { v } from "convex/values";
+import type { JsonObject } from "type-fest";
 import { z } from "zod";
 import {
 	type RecipeFormData,
@@ -11,76 +12,31 @@ import { api } from "./_generated/api";
 import { Doc, Id } from "./_generated/dataModel";
 import { action, internalMutation, mutation, query } from "./_generated/server";
 import { updateRecipeSchema } from "./schema";
+
 export const seed = internalMutation(async (ctx) => {
 	const allRecipes = await ctx.db.query("recipes").collect();
 	if (allRecipes.length > 0) {
 		return;
 	}
-	await ctx.db.insert("recipes", {
-		name: "Butterkuchen mit Mandeln",
-		description:
-			"Dieser köstliche Butterkuchen ist ein beliebter Blechkuchen-Klassiker ohne großen Aufwand. Durch den Sahneguss wird er besonders saftig.",
-		author: "Kathrin",
-		datePublished: "2023-02-12T07:54:00+00:00",
-		image: [
-			"https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-scaled.jpg",
-			"https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-500x500.jpg",
-			"https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-500x375.jpg",
-			"https://www.backenmachtgluecklich.de/media/2018/03/Saftiger-Butterkuchen-wie-vom-Baecker-480x270.jpg",
-		],
-		prepTime: "PT15M",
-		cookTime: "PT20M",
-		totalTime: "PT35M",
-		recipeYield: "1 Blech",
-		recipeCategory: ["Dessert", "Baking"],
-		recipeCuisine: ["German"],
-		recipeIngredient: [
-			"200 Milliliter Milch (lauwarm)",
-			"1 Würfel frische Hefe",
-			"70 Gramm Zucker",
-			"500 Gramm Weizenmehl (am besten Type 550 bzw. Wiener Griessler)",
-			"1 mittelgroßes Ei",
-			"100 Gramm Butter (weich)",
-			"1 Prise Salz",
-			"150 Gramm Butter",
-			"120 Gramm Zucker",
-			"100 Gramm Mandelblättchen",
-			"120 Milliliter Sahne",
-		],
-		recipeInstructions: [
-			{
-				type: "HowToStep",
-				text: "Die Hefe in einen Becher mit lauwarmer Milch bröckeln. Einen Teelöffel vom Zucker hinzugeben und rühren, bis sich Zucker und Hefe aufgelöst haben. Das Mehl in eine Schüssel geben und in der Mitte eine Mulde eindrücken. Die Hefe-Milch-Mischung hineingießen. Den restlichen Zucker dazugeben und mit etwas Mehl in der Mulde verrühren. Schüssel mit einem Tuch bedecken und an einem warmen Ort für ca. 10 Minuten stehen lassen.",
-				position: 1,
-			},
-			{
-				type: "HowToStep",
-				text: "Ei, weiche Butter und Salz hinzugeben. Den Teig mit der Küchenmaschine ca. 5 Minuten kneten, bis er glatt ist. Mit einem Tuch bedeckt an einem warmen Ort ca. 30 Minuten gehen lassen. Noch einmal kurz durchkneten und auf einem mit Backpapier belegten tiefen Blech ausrollen. Erneut 20 Minuten gehen lassen.",
-				position: 2,
-			},
-			{
-				type: "HowToStep",
-				text: "Backofen auf 190 Grad Ober- und Unterhitze vorheizen. Mit einem Kochlöffelstiel kleine Vertiefungen bzw. Mulden in den gegangenen Teig drücken. Butter in Flöckchen auf dem Teig verteilen. Gleichmäßig mit Zucker und Mandeln bestreuen.",
-				position: 3,
-			},
-			{
-				type: "HowToStep",
-				text: "Butterkuchen ca. 20 bis 25 Minuten goldgelb backen. Noch heiß mit flüssiger Sahne begießen. Am besten frisch gebacken servieren; der Kuchen lässt sich auch gut einfrieren.",
-				position: 4,
-			},
-		],
-		nutrition: {
-			calories: "",
-			proteinContent: "",
-			fatContent: "",
-			carbohydrateContent: "",
-			servingSize: "",
-		},
-		keywords: ["Butterkuchen", "German Cake", "Almond Cake"],
-		rating: 4.78,
-		createdAt: "2024-01-17T00:00:00Z",
-		updatedAt: "2024-01-17T00:00:00Z",
-	});
+
+	const recipes = [
+		await import("../app/recipes/butterkuchen.json"),
+		await import("../app/recipes/mango-chutney.json"),
+		await import("../app/recipes/sueddeutsche-gebundene-zwiebelsuppe.json"),
+		await import("../app/recipes/tandoori.json"),
+		await import("../app/recipes/thaisuppe.json"),
+		await import("../app/recipes/ungarische-gulaschsuppe.json"),
+	];
+
+	for (const recipe of recipes) {
+		const validatedData = parseRecipeJson(recipe.default);
+		await ctx.db.insert("recipes", {
+			...validatedData,
+			datePublished: new Date("2024-01-17T00:00:00Z").toISOString(),
+			createdAt: new Date("2024-01-17T00:00:00Z").toISOString(),
+			updatedAt: new Date("2024-01-17T00:00:00Z").toISOString(),
+		});
+	}
 });
 
 // Create a new recipe
@@ -176,11 +132,13 @@ export const getCategories = query({
 		const categoryCount = new Map<string, number>();
 		categoryCount.set("All", recipes.length); // All category counts all recipes
 
-		recipes.forEach((recipe) => {
-			recipe.recipeCategory?.forEach((category) => {
-				categoryCount.set(category, (categoryCount.get(category) ?? 0) + 1);
-			});
-		});
+		for (const recipe of recipes) {
+			if (recipe.recipeCategory) {
+				for (const category of recipe.recipeCategory) {
+					categoryCount.set(category, (categoryCount.get(category) ?? 0) + 1);
+				}
+			}
+		}
 
 		// Convert to array, sort by count, and take top 5
 		return Array.from(categoryCount.entries())
@@ -198,11 +156,13 @@ export const getAllCategories = query({
 		const categories = new Set<string>();
 		categories.add("All"); // Always include "All" category
 
-		recipes.forEach((recipe) => {
-			recipe.recipeCategory?.forEach((category) => {
-				categories.add(category);
-			});
-		});
+		for (const recipe of recipes) {
+			if (recipe.recipeCategory) {
+				for (const category of recipe.recipeCategory) {
+					categories.add(category);
+				}
+			}
+		}
 
 		return Array.from(categories).sort();
 	},
@@ -272,6 +232,81 @@ export const getTopRated = query({
 	},
 });
 
+export function parseRecipeJson(jsonContent: JsonObject): RecipeFormData {
+	// Handle both single objects and arrays of objects
+	const items =
+		"@graph" in jsonContent && Array.isArray(jsonContent["@graph"])
+			? jsonContent["@graph"]
+			: Array.isArray(jsonContent)
+				? jsonContent
+				: [jsonContent];
+
+	for (const item of items) {
+		if (item["@type"] === "Recipe") {
+			// Transform the LD+JSON recipe data to match RecipeFormData structure
+			const recipeData: RecipeFormData = {
+				name: item.name || "",
+				description: item.description || "",
+				author: item.author?.name || "Unknown",
+				image: Array.isArray(item.image) ? item.image : [item.image || ""],
+				prepTime: item.prepTime || "PT0M",
+				cookTime: item.cookTime || "PT0M",
+				totalTime: item.totalTime || "PT0M",
+				recipeYield: item.recipeYield?.toString() || "1 serving",
+				recipeCategory: Array.isArray(item.recipeCategory)
+					? item.recipeCategory
+					: [item.recipeCategory || "Other"],
+				recipeCuisine: Array.isArray(item.recipeCuisine)
+					? item.recipeCuisine
+					: [item.recipeCuisine || "Other"],
+				recipeIngredient: Array.isArray(item.recipeIngredient)
+					? item.recipeIngredient
+					: [item.recipeIngredient || ""],
+				recipeInstructions: Array.isArray(item.recipeInstructions)
+					? item.recipeInstructions.map(
+							(
+								instruction: z.infer<typeof recipeInstructionSchema> | string,
+								index: number,
+							) => ({
+								type: "HowToStep",
+								text:
+									typeof instruction === "string"
+										? instruction
+										: instruction.text || "",
+								position: index + 1,
+							}),
+						)
+					: [
+							{
+								type: "HowToStep",
+								text: item.recipeInstructions?.toString() || "",
+								position: 1,
+							},
+						],
+				nutrition: {
+					calories: item.nutrition?.calories || undefined,
+					proteinContent: item.nutrition?.proteinContent || undefined,
+					fatContent: item.nutrition?.fatContent || undefined,
+					carbohydrateContent: item.nutrition?.carbohydrateContent || undefined,
+					servingSize: item.nutrition?.servingSize || undefined,
+				},
+				keywords: Array.isArray(item.keywords)
+					? item.keywords
+					: item.keywords?.split(",").map((k: string) => k.trim()) || [],
+				suitableForDiet: Array.isArray(item.suitableForDiet)
+					? item.suitableForDiet
+					: item.suitableForDiet
+						? [item.suitableForDiet]
+						: [],
+				difficulty: "medium", // Default value
+				rating: undefined,
+			};
+			return recipeFormSchema.parse(recipeData);
+		}
+	}
+	throw new Error("No valid Recipe data found in JSON content");
+}
+
 export const createRecipefromUrl = action({
 	args: { url: v.string() },
 	handler: async (ctx, args) => {
@@ -292,7 +327,7 @@ export const createRecipefromUrl = action({
 			const jsonLdScripts = $('script[type="application/ld+json"]');
 			console.log(jsonLdScripts);
 			// Look through all ld+json scripts for Recipe schema
-			let recipeData: Partial<RecipeFormData> | null = null;
+			let validatedData: Partial<RecipeFormData> | null = null;
 
 			jsonLdScripts.each((_, element) => {
 				try {
@@ -301,92 +336,15 @@ export const createRecipefromUrl = action({
 
 					const jsonContent = JSON.parse(content);
 
-					// Handle both single objects and arrays of objects
-					const items = Array.isArray(jsonContent)
-						? jsonContent
-						: [jsonContent];
-
-					for (const item of items) {
-						console.log(item);
-						if (item["@type"] === "Recipe") {
-							// Transform the LD+JSON recipe data to match RecipeFormData structure
-							recipeData = {
-								name: item.name || "",
-								description: item.description || "",
-								author: item.author?.name || "Unknown",
-								image: Array.isArray(item.image)
-									? item.image
-									: [item.image || ""],
-								prepTime: item.prepTime || "PT0M",
-								cookTime: item.cookTime || "PT0M",
-								totalTime: item.totalTime || "PT0M",
-								recipeYield: item.recipeYield?.toString() || "1 serving",
-								recipeCategory: Array.isArray(item.recipeCategory)
-									? item.recipeCategory
-									: [item.recipeCategory || "Other"],
-								recipeCuisine: Array.isArray(item.recipeCuisine)
-									? item.recipeCuisine
-									: [item.recipeCuisine || "Other"],
-								recipeIngredient: Array.isArray(item.recipeIngredient)
-									? item.recipeIngredient
-									: [item.recipeIngredient || ""],
-								recipeInstructions: Array.isArray(item.recipeInstructions)
-									? item.recipeInstructions.map(
-											(
-												instruction:
-													| z.infer<typeof recipeInstructionSchema>
-													| string,
-												index: number,
-											) => ({
-												type: "HowToStep",
-												text:
-													typeof instruction === "string"
-														? instruction
-														: instruction.text || "",
-												position: index + 1,
-											}),
-										)
-									: [
-											{
-												type: "HowToStep",
-												text: item.recipeInstructions?.toString() || "",
-												position: 1,
-											},
-										],
-								nutrition: {
-									calories: item.nutrition?.calories || undefined,
-									proteinContent: item.nutrition?.proteinContent || undefined,
-									fatContent: item.nutrition?.fatContent || undefined,
-									carbohydrateContent:
-										item.nutrition?.carbohydrateContent || undefined,
-									servingSize: item.nutrition?.servingSize || undefined,
-								},
-								keywords: Array.isArray(item.keywords)
-									? item.keywords
-									: item.keywords?.split(",").map((k: string) => k.trim()) ||
-										[],
-								suitableForDiet: Array.isArray(item.suitableForDiet)
-									? item.suitableForDiet
-									: item.suitableForDiet
-										? [item.suitableForDiet]
-										: [],
-								difficulty: "medium", // Default value
-								rating: undefined,
-							};
-							return false; // Break the loop
-						}
-					}
+					validatedData = parseRecipeJson(jsonContent);
 				} catch (e) {
 					console.error("Error parsing JSON-LD script:", e);
 				}
 			});
 
-			if (!recipeData) {
+			if (!validatedData) {
 				throw new Error("No Recipe schema found in the page");
 			}
-
-			// Validate the recipe data against the schema
-			const validatedData = recipeFormSchema.parse(recipeData);
 
 			await ctx.runMutation(api.recipes.create, validatedData);
 		} catch (error) {

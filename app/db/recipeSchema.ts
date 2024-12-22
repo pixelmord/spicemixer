@@ -7,7 +7,7 @@ export const recipeInstructionSchema = z.object({
 });
 
 export const nutritionSchema = z.object({
-	calories: z.string().optional(),
+	calories: z.coerce.string().optional(),
 	proteinContent: z.string().optional(),
 	fatContent: z.string().optional(),
 	carbohydrateContent: z.string().optional(),
