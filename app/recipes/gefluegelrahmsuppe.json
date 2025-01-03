@@ -1,0 +1,104 @@
+{
+    "@context": "https://schema.org/",
+    "@type": "Recipe",
+    "name": "Geflügelrahmsuppe mit Curry",
+    "description": "Diese wunderschöne Suppe gibt es bei uns, wenn wir eine größere Runde von Gästen eingeladen haben, denn sie wird von allen gerne gegessen. Natürlich können Sie statt der Schenkel auch ganze Tiere verwenden. Auch gut mit Pute.",
+    "author": {
+        "@type": "Person",
+        "name": "Alfons Schuhbeck"
+    },
+    "image": [
+        "https://example.com/photos/gefluegelrahmsuppe.jpg"
+    ],
+    "recipeIngredient": [
+        "3 Poulardenkeulen (ca. 800 g)",
+        "180 g Zwiebeln",
+        "50 g Lauch (geputzt)",
+        "1 großer, aromatischer Apfel (Cox Orange, Boskoop)",
+        "2 Tomaten (ca. 150 g)",
+        "1 Knoblauchzehe",
+        "2 Scheiben Ingwer (2 mm stark)",
+        "30 g Butter",
+        "Salz",
+        "Pfeffer",
+        "1 TL gutes Currypulver",
+        "4 g frische Estragonblätter",
+        "1 Gewürznelke",
+        "Wasser",
+        "1/4 l süße Sahne",
+        "1/4 l Creme double",
+        "120 g eiskalte Butter",
+        "1-2 EL Kokosmilch",
+        "3-4 EL geschlagene Sahne"
+    ],
+    "recipeInstructions": [
+        {
+            "@type": "HowToSection",
+            "name": "Vorbereitung",
+            "itemListElement": [
+                {
+                    "@type": "HowToStep",
+                    "text": "Die Poulardenkeulen in den Gelenken halbieren. Zwiebeln und Lauch putzen, abwiegen und in Streifen schneiden. Apfel schälen, Kerngehäuse ausschneiden, fein aufblättern. Tomaten halbieren, Knoblauchzehe schälen, Ingwer­ scheiben vorbereiten."
+                }
+            ]
+        },
+        {
+            "@type": "HowToSection",
+            "name": "Zubereitung",
+            "itemListElement": [
+                {
+                    "@type": "HowToStep",
+                    "text": "Die Poulardenkeulen in etwas Butter golden anbraten, salzen und aus der Mühle pfeffern."
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Vorbereitete Zwiebeln und Lauch hinzugeben und leise anschwitzen. Mit Curry bestäuben, etwas anziehen lassen."
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Apfelscheibchen, Tomaten, Ingwer, Estragon, Nelke und Knoblauchzehe zufügen, alles miteinander im Rohr 10 bis 15 Minuten halb dünsten, halb braten."
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Dann mit Wasser auffüllen und langsam ziehen lassen - es genügen 170 °C. Wenn die Poulardenkeulen weich sind (nach etwa weiteren 15 Minuten), herausnehmen."
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Das Fleisch von den Knochen lösen. Die schönen Stücke des Fleisches —das dürfte etwa die Hälfte sein —in dünne Scheiben schneiden und mit etwas Brühe bedeckt beiseite stellen. Das weniger schöne Fleisch (ohne Haut, Knochen und Sehnen) in die Brühe zurückgeben."
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Alles zusammen im Mixer oder mit dem Pürierstab so fein wie möglich pürieren. Durch ein Haarsieb passieren."
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Wieder erhitzen, dann neben dem Feuer flüssige Sahne, Creme double und die Butter in kleinen Stückchen zufügen und untermixen."
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Zum Schluß die Kokosmilch und die geschlagene Sahne unterziehen. Abschmecken."
+                },
+                {
+                    "@type": "HowToStep",
+                    "text": "Das bereitgestellte Fleisch in vorgewärmte Tassen oder Teller verteilen und mit der heißen Suppe auffüllen."
+                }
+            ]
+        }
+    ],
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "89"
+    },
+    "recipeCategory": "https://schema.org/SoupDish",
+    "recipeCuisine": "https://schema.org/GermanCuisine",
+    "keywords": "Geflügelsuppe, Curry, Rahm, Poularde",
+    "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "450 kcal"
+    },
+    "recipeYield": "6-8 Portionen",
+    "prepTime": "PT30M",
+    "cookTime": "PT45M",
+    "totalTime": "PT1H15M"
+}

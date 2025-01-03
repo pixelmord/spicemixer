@@ -9,10 +9,41 @@ import {
 	type recipeInstructionSchema,
 } from "./../app/db/recipeSchema";
 import { api } from "./_generated/api";
-import { Doc, Id } from "./_generated/dataModel";
 import { action, internalMutation, mutation, query } from "./_generated/server";
 import { updateRecipeSchema } from "./schema";
+import { convertMarkdownToRecipe } from "../app/services/recipe-conversion";
 
+const createRecipeArgs = {
+	name: v.string(),
+	description: v.string(),
+	author: v.string(),
+	image: v.array(v.string()),
+	prepTime: v.string(),
+	cookTime: v.string(),
+	totalTime: v.string(),
+	recipeYield: v.string(),
+	recipeCategory: v.array(v.string()),
+	recipeCuisine: v.array(v.string()),
+	recipeIngredient: v.array(v.string()),
+	recipeInstructions: v.array(
+		v.object({
+			type: v.string(),
+			text: v.string(),
+			position: v.number(),
+		}),
+	),
+	nutrition: v.object({
+		calories: v.optional(v.string()),
+		proteinContent: v.optional(v.string()),
+		fatContent: v.optional(v.string()),
+		carbohydrateContent: v.optional(v.string()),
+		servingSize: v.optional(v.string()),
+	}),
+	keywords: v.array(v.string()),
+	suitableForDiet: v.optional(v.array(v.string())),
+	difficulty: v.optional(v.string()),
+	rating: v.optional(v.number()),
+};
 export const seed = internalMutation(async (ctx) => {
 	const allRecipes = await ctx.db.query("recipes").collect();
 	if (allRecipes.length > 0) {
@@ -39,47 +70,28 @@ export const seed = internalMutation(async (ctx) => {
 	}
 });
 
-// Create a new recipe
-export const create = mutation({
-	args: {
-		name: v.string(),
-		description: v.string(),
-		author: v.string(),
-		image: v.array(v.string()),
-		prepTime: v.string(),
-		cookTime: v.string(),
-		totalTime: v.string(),
-		recipeYield: v.string(),
-		recipeCategory: v.array(v.string()),
-		recipeCuisine: v.array(v.string()),
-		recipeIngredient: v.array(v.string()),
-		recipeInstructions: v.array(
-			v.object({
-				type: v.string(),
-				text: v.string(),
-				position: v.number(),
-			}),
-		),
-		nutrition: v.object({
-			calories: v.optional(v.string()),
-			proteinContent: v.optional(v.string()),
-			fatContent: v.optional(v.string()),
-			carbohydrateContent: v.optional(v.string()),
-			servingSize: v.optional(v.string()),
-		}),
-		keywords: v.array(v.string()),
-		suitableForDiet: v.optional(v.array(v.string())),
-		difficulty: v.optional(v.string()),
-		rating: v.optional(v.number()),
-	},
+// Internal mutation for creating a recipe
+export const createRecipe = mutation({
+	args: createRecipeArgs,
 	handler: async (ctx, args) => {
-		const recipeId = await ctx.db.insert("recipes", {
+		const id = await ctx.db.insert("recipes", {
 			...args,
 			datePublished: new Date().toISOString(),
 			createdAt: new Date().toISOString(),
 			updatedAt: new Date().toISOString(),
 		});
-		return recipeId;
+		return { id };
+	},
+});
+
+// Action for creating a recipe
+export const createRecipeFromMarkdown = action({
+	args: {
+		text: v.string(),
+	},
+	handler: async (ctx, args) => {
+		const recipeData = await convertMarkdownToRecipe(args.text);
+		await ctx.runMutation(api.recipes.createRecipe, recipeData);
 	},
 });
 
@@ -346,7 +358,7 @@ export const createRecipefromUrl = action({
 				throw new Error("No Recipe schema found in the page");
 			}
 
-			await ctx.runMutation(api.recipes.create, validatedData);
+			await ctx.runMutation(api.recipes.createRecipe, validatedData);
 		} catch (error) {
 			if (error instanceof z.ZodError) {
 				throw new Error(`Invalid recipe data: ${error.message}`);
